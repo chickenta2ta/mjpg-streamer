@@ -1,0 +1,14 @@
+[Unit]
+Description=SSH Port Forwarding to Remote Server
+After=network.target
+
+[Service]
+Type=simple
+User=jaz
+ExecStart=/usr/bin/ssh -T -N -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -i /app/mjpg-streamer/mjpg-streamer-experimental/ja-zennoh-keypair.pem -R 50001:localhost:22 ec2-user@52.197.49.0
+
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
