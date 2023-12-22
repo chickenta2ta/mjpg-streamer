@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=jaz
+User=root
 ExecStart=/usr/bin/ssh -T -N -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -i /app/mjpg-streamer/mjpg-streamer-experimental/ja-zennoh-keypair.pem -R 50001:localhost:22 ec2-user@52.197.49.0
 
 Restart=always
